@@ -71,7 +71,7 @@ layout: false
   ## How to use git
 ]
 .right-column[
-  A simple Git guide http://rogerdudler.github.io/git-guide/
+  [A simple Git guide](http://rogerdudler.github.io/git-guide/)
 ]
 
 ---
@@ -129,5 +129,138 @@ layout: false
   - Historical Branches
 ]
 .right-column[
-Instead of a single master branch, this workflow uses two branches to record the history of the project. The master branch stores the official release history, and the develop branch serves as an integration branch for features. It's also convenient to tag all commits in the master branch with a version number.
+- Instead of a single `master` branch, this workflow uses two branches to record the history of the project. The `master` branch stores the official release history, and the `develop` branch serves as an integration branch for features. It's also convenient to tag all commits in the `master` branch with a version number.
+
+
+![](02.svg)
+
+
+- The rest of this workflow revolves around the distinction between these two branches.
 ]
+---
+layout: false
+.left-column[
+  ## Gitflow - How it works
+  - Historical Branches
+
+  - Feature Branches
+
+]
+.right-column[
+- Each new `feature` should reside in its own branch. But, instead of branching off of `master`, `feature` branches use `develop` as their parent branch.
+- When a `feature` is complete, it gets merged back into `develop`. Features should never interact directly with `master`.
+
+
+![](03.svg)
+
+
+- Note that `feature` branches combined with the `develop` branch is, for all intents and purposes, the Feature Branch Workflow. But, the Gitflow Workflow doesn’t stop there.
+]
+
+---
+layout: false
+.left-column[
+  ## Gitflow - How it works
+  - Historical Branches
+
+  - Feature Branches
+
+  - Release Branches
+]
+.right-column[
+![](04.svg)
+
+- Once `develop` has acquired enough features for a release (or a predetermined release date is approaching), you fork a `release` branch off of `develop`.
+
+- Creating this branch starts the next release cycle, so no **new features** can be added after this point—only bug fixes, documentation generation, and other release-oriented tasks should go in this branch.
+
+]
+
+---
+layout: false
+.left-column[
+  ## Gitflow - How it works
+  - Historical Branches
+
+  - Feature Branches
+
+  - Release Branches
+]
+.right-column[
+![](04.svg)
+
+- Once it's ready to ship, the release gets merged into `master` and tagged with a version number. In addition, it should be merged back into `develop`, which may have progressed since the release was initiated.
+
+- Using a dedicated branch to prepare releases makes it possible for one team to polish the current release while another team continues working on features for the next release. It also creates well-defined phases of development (e.g., it's easy to say, “this week we're preparing for version 4.0” and to actually see it in the structure of the repository).
+]
+
+---
+layout: false
+.left-column[
+  ## Gitflow - How it works
+  - Historical Branches
+
+  - Feature Branches
+
+  - Release Branches
+]
+.right-column[
+![](04.svg)
+
+##Common conventions
+- branch off: `develop`
+- merge into: `master`
+- naming convention: `release-*` or `release/*`
+]
+
+---
+layout: false
+.left-column[
+  ## Gitflow - How it works
+  - Historical Branches
+
+  - Feature Branches
+
+  - Release Branches
+
+  - Maintenance Branches
+]
+.right-column[
+![](05.svg)
+
+- Maintenance or “hotfix” branches are used to quickly patch production releases. This is the only branch that should fork directly off of `master`
+
+- As soon as the fix is complete, it should be merged into both `master` and `develop` (or the current release branch), and `master` should be tagged with an updated version number.
+
+]
+---
+layout: false
+.left-column[
+  ## Gitflow - How it works
+  - Historical Branches
+
+  - Feature Branches
+
+  - Release Branches
+
+  - Maintenance Branches
+]
+.right-column[
+![](05.svg)
+
+- Having a dedicated line of development for bug fixes lets your team address issues without interrupting the rest of the workflow or waiting for the next release cycle. You can think of maintenance branches as ad hoc release branches that work directly with `master`.
+
+- [Example](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow)
+]
+---
+template: none
+# Resources
+[Version Control](https://www.atlassian.com/git/tutorials/what-is-version-control) /
+[Git](https://git-scm.com/) /
+[Git Cheat Sheet](https://www.atlassian.com/dam/jcr:8132028b-024f-4b6b-953e-e68fcce0c5fa/atlassian-git-cheatsheet.pdf) /
+[Git Flow](https://github.com/nvie/gitflow) /
+[Git Flow Cheat Sheet](https://danielkummer.github.io/git-flow-cheatsheet/)
+
+## Desktop Clients
+[Sourcetree](https://www.sourcetreeapp.com/) /
+[Git Desktop](https://desktop.github.com/)
