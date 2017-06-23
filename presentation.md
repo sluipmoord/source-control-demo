@@ -259,8 +259,11 @@ template: none
 [Git](https://git-scm.com/) /
 [Git Cheat Sheet](https://www.atlassian.com/dam/jcr:8132028b-024f-4b6b-953e-e68fcce0c5fa/atlassian-git-cheatsheet.pdf) /
 [Git Flow](https://github.com/nvie/gitflow) /
+[Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/) /
 [Git Flow Cheat Sheet](https://danielkummer.github.io/git-flow-cheatsheet/)
 
 ## Desktop Clients
 [Sourcetree](https://www.sourcetreeapp.com/) /
 [Git Desktop](https://desktop.github.com/)
+---
+![](in-case-of-fire-1-git-commit-2-git-push-3-leave-building2.png)
